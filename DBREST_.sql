@@ -103,7 +103,7 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `dbRest`.`tb_cajachica` (
   `cjc_int_id` INT NOT NULL AUTO_INCREMENT,
-  `cjc_dbl_dinero_total` DOUBLE NOT NULL,
+  `cjc_dbl_dinero_total` DOUBLE(10,2) NOT NULL,
   `cjc_str_usuario_creacion` VARCHAR(45) NOT NULL,
   `cjc_dat_fecha_creacion` DATETIME NOT NULL,
   `cjc_dat_fecha_modificacion` DATETIME NULL,
@@ -113,8 +113,8 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `dbRest`.`tb_historial_cajachica` (
   `hcjc_int_id` INT NOT NULL AUTO_INCREMENT,
-  `hcjc_dbl_monto_ingreso` DOUBLE NULL,
-  `hcjc_dbl_monto_salida` DOUBLE NULL,
+  `hcjc_dbl_monto_ingreso` DOUBLE(10,2) NULL,
+  `hcjc_dbl_monto_salida` DOUBLE(10,2)  NULL,
   `hcjc_dat_fecha_ingreso` DATETIME NULL,
   `hcjc_dat_fecha_salida` DATETIME NULL,
   `hcjc_dat_fecha_venta` DATETIME NULL,
