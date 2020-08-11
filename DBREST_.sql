@@ -23,7 +23,7 @@ COMMENT = '	';
 insert into tb_item_inventario (invi_str_nombre,invi_bit_estado,invi_dat_fecha_creacion,
 invi_dat_fecha_modificacion,invi_str_usuario_creacion,invi_str_usuario_modificacion,
 invi_str_tipo_medida_entrada,itm_int_tipo_medida_entrada,inv_int_id,
-invi_dbl_cantidad_total_item,invi_str_estado_item,invi_int_estado_item,invi_dbl_peso_neto) 
+invi_dbl_cantidad_total_item,invi_str_estado_item,invi_int_estado_item,invi_dbl_peso_neto)
 values ('PAN',1,NOW(),now(),'rbejar','rbejar','U',1,1,10,'ACTIVO',2,12);
 
 CREATE TABLE IF NOT EXISTS `dbRest`.`tb_pedidos` (
@@ -33,6 +33,9 @@ CREATE TABLE IF NOT EXISTS `dbRest`.`tb_pedidos` (
   `ped_dbl_valor_neto` DECIMAL(10,2) NOT NULL,
   `ped_dbl_venta_total` DECIMAL(10,2) NOT NULL,
   `ped_str_mesa` varchar(20) NOT NULL,
+  `ped_str_telefono_cliente` VARCHAR(10) NOT NULL,
+  `ped_str_nombre_cliente` VARCHAR(10) NOT NULL,
+  `ped_str_direccion_cliente` VARCHAR(45) NOT NULL,
   `ped_int_estado` INT NULL,
   `ped_bit_combo` BIT NULL,
   `ped_dbl_igv` DECIMAL(10,2) NOT NULL,
