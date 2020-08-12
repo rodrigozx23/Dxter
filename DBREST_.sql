@@ -20,12 +20,6 @@ CREATE TABLE IF NOT EXISTS `dbRest`.`tb_item_inventario` (
 ENGINE = InnoDB
 COMMENT = '	';
 
-insert into tb_item_inventario (invi_str_nombre,invi_bit_estado,invi_dat_fecha_creacion,
-invi_dat_fecha_modificacion,invi_str_usuario_creacion,invi_str_usuario_modificacion,
-invi_str_tipo_medida_entrada,itm_int_tipo_medida_entrada,inv_int_id,
-invi_dbl_cantidad_total_item,invi_str_estado_item,invi_int_estado_item,invi_dbl_peso_neto)
-values ('PAN',1,NOW(),now(),'rbejar','rbejar','U',1,1,10,'ACTIVO',2,12);
-
 CREATE TABLE IF NOT EXISTS `dbRest`.`tb_pedidos` (
   `ped_int_id` INT NOT NULL AUTO_INCREMENT,
   `ped_dat_fecha_inicio` DATETIME NOT NULL,
@@ -127,17 +121,11 @@ CREATE TABLE IF NOT EXISTS `dbRest`.`tb_historial_cajachica` (
   `hcjc_dat_fecha_modificacion` DATETIME NULL,
   `cjc_int_id` INT NOT NULL,
   `ped_int_id` INT NULL,
-  PRIMARY KEY (`hcjc_int_id`),
-  INDEX `fk_tb_historial_cajachica_tb_cajachica1_idx` (`cjc_int_id` ASC) VISIBLE,
-  INDEX `fk_tb_historial_cajachica_tb_pedidos1_idx` (`ped_int_id` ASC) VISIBLE,
-  CONSTRAINT `fk_tb_historial_cajachica_tb_cajachica1`
-    FOREIGN KEY (`cjc_int_id`)
-    REFERENCES `dbRest`.`tb_cajachica` (`cjc_int_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tb_historial_cajachica_tb_pedidos1`
-    FOREIGN KEY (`ped_int_id`)
-    REFERENCES `dbRest`.`tb_pedidos` (`ped_int_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
+  PRIMARY KEY (`hcjc_int_id`))
+ENGINE = InnoDB;
+
+insert into tb_item_inventario (invi_str_nombre,invi_bit_estado,invi_dat_fecha_creacion,
+invi_dat_fecha_modificacion,invi_str_usuario_creacion,invi_str_usuario_modificacion,
+invi_str_tipo_medida_entrada,itm_int_tipo_medida_entrada,inv_int_id,
+invi_dbl_cantidad_total_item,invi_str_estado_item,invi_int_estado_item,invi_dbl_peso_neto)
+values ('PAN',1,NOW(),now(),'rbejar','rbejar','U',1,1,10,'ACTIVO',2,12);
